@@ -1,0 +1,14 @@
+services:
+  voice-agent:
+    image: voice-agent:local
+    build: .
+    ports:
+      - "3000:3000"
+    env_file: .env
+    environment:
+      - PUBLIC_URL=${PUBLIC_URL}
+    volumes:
+      # Optional: mount your persona.override.json to customize greeting, voice, and system prompt
+      - ./persona.override.json:/app/persona.override.json
+      - ./logs:/app/logs
+    restart: unless-stopped

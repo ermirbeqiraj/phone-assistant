@@ -1,0 +1,38 @@
+{
+  "name": "voice-agent",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/server/index.ts",
+    "list-voices": "tsx scripts/list-voices.ts",
+    "test:loop": "tsx scripts/test-loop.ts",
+    "test:stt": "tsx scripts/test-stt.ts",
+    "test:vad": "tsx scripts/test-vad.ts",
+    "test:tts": "tsx scripts/test-tts.ts",
+    "test:auth": "tsx --test scripts/test-webhook-auth.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/server/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fastify/formbody": "^8.0.2",
+    "@fastify/websocket": "^11.2.0",
+    "@mistralai/mistralai": "latest",
+    "dotenv": "^16.4.0",
+    "fastify": "^5.8.5",
+    "onnxruntime-node": "^1.26.0",
+    "ws": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "onnxruntime-node"
+    ]
+  }
+}
